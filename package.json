@@ -17,7 +17,10 @@
     "start": "node index.js",
     "start-watch": "nodemon index.js",
     "test": "mocha **/*.test.js",
-    "test-watch": "nodemon yarn test"
+    "test-watch": "nodemon yarn test",
+    "client": "cd client && yarn start",
+    "dev": "concurrently \"yarn start-watch\" \"yarn client\"",
+    "lt": "lt -p 5000 -s votedrakendevlt000"
   },
   "devDependencies": {
     "babel-eslint": "^8.0.3",
