@@ -2,7 +2,8 @@ const express = require('express')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 
-const { mongoURI } = require('./config/db')
+const { mongoURI } = require('./config/keys')
+const authRoutes = require('./routes/authRoutes')
 
 mongoose.Promise = global.Promise
 mongoose.connect(mongoURI, { useMongoClient: true }, () => {
@@ -14,6 +15,7 @@ const app = express()
 // 3rd party middlewares
 app.use(bodyParser.json())
 
-// routes
+// authentication routes
+app.use('/auth', authRoutes)
 
 module.exports = app
