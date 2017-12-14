@@ -1,0 +1,35 @@
+{
+  "name": "fcc-voting-app",
+  "version": "1.0.0",
+  "description": "Voting app project for FCC",
+  "main": "index.js",
+  "repository": "git@github.com:CodeDraken/fcc-voting-app.git",
+  "author": "CodeDraken",
+  "license": "MIT",
+  "engines": {
+    "node": "8.9.0",
+    "npm": "5.5.1"
+  },
+  "standard": {
+    "parser": "babel-eslint"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "start-watch": "nodemon index.js",
+    "test": "mocha **/*.test.js",
+    "test-watch": "nodemon yarn test"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.0.3",
+    "concurrently": "^3.5.1",
+    "localtunnel": "^1.8.3",
+    "nodemon": "^1.12.7"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mongoose": "^4.13.7",
+    "passport": "^0.4.0",
+    "passport-github": "^1.1.0"
+  }
+}
