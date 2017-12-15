@@ -7,7 +7,7 @@ const authRouter = express.Router()
 
 const authController = require('../controllers/authController')
 
-// authRouter.get('/login')
+authRouter.get('/current_user', authController.currentUser)
 
 authRouter.get('/logout', authController.logout)
 
