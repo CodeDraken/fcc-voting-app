@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const { ObjectID } = require('mongodb')
 
 const { Poll } = require('../models')
 
@@ -20,13 +21,32 @@ const pollController = {
         title,
         choices,
         votes: [],
-        _owner: new mongoose.Types.ObjectId('5a3312e198b4ec0d7f816616'), // req.user.id
+        _owner: req.user.id,
         createdAt: Date.now()
       }).save()
 
       res.send(poll)
     } catch (err) {
       res.status(422).send(err)
+    }
+  },
+
+  async deletePoll (req, res) {
+    // delete poll and send back the deleted
+    try {
+      const { id } = req.params
+
+      if (!ObjectID.isValid(id)) return res.status(404).send()
+
+      const poll = await Poll.findOneAndRemove({
+        _id: id,
+        _owner: req.user._id
+      })
+
+      return res.send(poll)
+    } catch (err) {
+      console.log(err)
+      return res.status(500).send(err)
     }
   }
 }

@@ -11,4 +11,6 @@ pollRouter.get('/polls', pollController.getPolls)
 
 pollRouter.post('/polls', pollController.newPoll)
 
+pollRouter.delete('/polls/:id', pollController.deletePoll)
+
 module.exports = pollRouter
