@@ -6,6 +6,7 @@ const passport = require('passport')
 
 const { mongoURI, cookieKey } = require('./config/keys')
 const authRoutes = require('./routes/authRoutes')
+const pollRoutes = require('./routes/pollRoutes')
 
 // passport config
 require('./services/passport')
@@ -36,5 +37,8 @@ app.use(bodyParser.json())
 
 // authentication routes
 app.use('/auth', authRoutes)
+
+// poll api routes
+app.use('/api', pollRoutes)
 
 module.exports = app

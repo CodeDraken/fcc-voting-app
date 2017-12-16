@@ -10,7 +10,7 @@ const pollSchema = new Schema({
     votes: { type: Number, default: 0 }
   }],
 
-  voters: [{
+  votes: [{
     _user: { type: Schema.Types.ObjectId, ref: 'User', required: true },
     vote: { type: Number, required: true }
   }],
@@ -19,7 +19,9 @@ const pollSchema = new Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
     required: true
-  }
+  },
+
+  createdAt: Date
 })
 
 module.exports = mongoose.model('Poll', pollSchema)
