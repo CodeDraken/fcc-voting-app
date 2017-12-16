@@ -8,6 +8,8 @@ const { mongoURI, cookieKey } = require('./config/keys')
 const authRoutes = require('./routes/authRoutes')
 const pollRoutes = require('./routes/pollRoutes')
 
+const fakeUser = require('./middleware/fakeUser')
+
 // passport config
 require('./services/passport')
 
@@ -34,6 +36,9 @@ app.use(passport.session())
 
 // 3rd party middlewares
 app.use(bodyParser.json())
+
+// DEBUG / DEVELOPING ONLY
+app.use(fakeUser)
 
 // authentication routes
 app.use('/auth', authRoutes)
