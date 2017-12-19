@@ -5,12 +5,11 @@ const { Schema } = mongoose
 const userSchema = new Schema({
   username: {
     type: String,
-    required: true
+    default: 'Anonymous'
   },
 
   githubId: {
-    type: String,
-    required: true
+    type: String
   },
 
   avatarUrl: String

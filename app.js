@@ -8,7 +8,8 @@ const { mongoURI, cookieKey } = require('./config/keys')
 const authRoutes = require('./routes/authRoutes')
 const pollRoutes = require('./routes/pollRoutes')
 
-const fakeUser = require('./middleware/fakeUser')
+// const fakeUser = require('./middleware/fakeUser')
+const anonUser = require('./middleware/anonUser')
 
 // passport config
 require('./services/passport')
@@ -37,8 +38,20 @@ app.use(passport.session())
 // 3rd party middlewares
 app.use(bodyParser.json())
 
+app.get('/', (req, res) => {
+  let ip = (req.headers['x-forwarded-for'] || '').split(',').pop() ||
+    req.connection.remoteAddress ||
+    req.socket.remoteAddress ||
+    req.connection.socket.remoteAddress
+
+  res.send({ ip })
+})
+
 // DEBUG / DEVELOPING ONLY
-app.use(fakeUser)
+// app.use(fakeUser)
+
+// Anonymous auth - if no user then create one
+app.use(anonUser)
 
 // authentication routes
 app.use('/auth', authRoutes)

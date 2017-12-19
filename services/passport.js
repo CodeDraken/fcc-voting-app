@@ -28,12 +28,6 @@ passport.use(
   }, async (accessToken, refreshToken, profile, done) => {
     // save user
     try {
-      console.log({
-        githubId: profile.id,
-        username: profile.username,
-        avatarUrl: profile._json.avatar_url
-      })
-
       const existingUser = await User.findOne({ githubId: profile.id })
 
       if (existingUser) {
