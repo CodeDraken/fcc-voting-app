@@ -16,10 +16,20 @@ const anonUser = (req, res, next) => {
     // no anonymous user set && user not logged in
     req.session.user = new User()._id
 
-    req.user = req.session.user
+    req.user = {
+      _id: req.session.user,
+      username: 'Anonymous',
+      githubId: null,
+      avatarUrl: null
+    }
   } else if (req.session.user && !req.user) {
     // we created an anonymous user, but we need to set it on req.user
-    req.user = req.session.user
+    req.user = {
+      _id: req.session.user,
+      username: 'Anonymous',
+      githubId: null,
+      avatarUrl: null
+    }
   }
 
   // commented out to avoid infinite anonymous voting by logging in / out

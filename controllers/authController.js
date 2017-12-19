@@ -4,18 +4,7 @@ const authController = {
   },
 
   currentUser (req, res) {
-    if (req.user && req.user.githubId) {
-      // send authenticated user
-      res.json(req.user)
-    } else if (req.user) {
-      // anonymous user
-      res.json({
-        _id: req.user,
-        username: 'Anonymous',
-        githubId: null,
-        avatarUrl: null
-      })
-    }
+    res.json(req.user)
   },
 
   logout (req, res) {
