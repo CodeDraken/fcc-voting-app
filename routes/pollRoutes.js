@@ -17,6 +17,9 @@ pollRouter.get('/polls/:id', validId, pollController.getPoll)
 // delete a poll
 pollRouter.delete('/polls/:id', validId, requireLogin, pollController.deletePoll)
 
+// get user's polls
+pollRouter.get('/mypolls', requireLogin, pollController.getMyPolls)
+
 // get all polls
 pollRouter.get('/polls', pollController.getPolls)
 

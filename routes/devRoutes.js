@@ -9,4 +9,7 @@ const devController = require('../controllers/devController')
 // clear session
 devRouter.get('/clear/session', devController.clear.session)
 
+// delete all polls
+devRouter.get('/clear/polls', devController.clear.polls)
+
 module.exports = devRouter

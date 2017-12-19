@@ -43,6 +43,16 @@ const pollController = {
     }
   },
 
+  async getMyPolls (req, res) {
+    try {
+      const polls = await Poll.find({ _owner: req.user._id })
+
+      res.send(polls)
+    } catch (error) {
+      res.status(400).send(error)
+    }
+  },
+
   async getPoll (req, res) {
     // get one poll by id
     try {
@@ -66,7 +76,7 @@ const pollController = {
         title,
         choices,
         votes: [],
-        _owner: req.user.id,
+        _owner: req.user._id,
         createdAt: Date.now()
       }).save()
 
