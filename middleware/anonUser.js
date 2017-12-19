@@ -10,10 +10,11 @@ const User = db.User
 //
 const anonUser = (req, res, next) => {
   console.log('session: ', req.session)
+  const hasPassportUser = req.session.passport && req.session.passport.user
 
-  if (!req.session.user && !req.user && !req.session.passport.user) {
+  if (!req.session.user && !req.user && !hasPassportUser) {
     // no anonymous user set && user not logged in
-    req.session.user = new User()
+    req.session.user = new User()._id
 
     req.user = req.session.user
   } else if (req.session.user && !req.user) {

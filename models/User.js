@@ -4,8 +4,7 @@ const { Schema } = mongoose
 // users -
 const userSchema = new Schema({
   username: {
-    type: String,
-    default: 'Anonymous'
+    type: String
   },
 
   githubId: {

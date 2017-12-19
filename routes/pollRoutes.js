@@ -6,7 +6,6 @@ const express = require('express')
 const requireLogin = require('../middleware/requireLogin')
 const validId = require('../middleware/validId')
 const pollRouter = express.Router()
-
 const pollController = require('../controllers/pollController')
 
 // vote on a poll

@@ -5,6 +5,7 @@ const cookieSession = require('cookie-session')
 const passport = require('passport')
 
 const { mongoURI, cookieKey } = require('./config/keys')
+const devRoutes = require('./routes/devRoutes')
 const authRoutes = require('./routes/authRoutes')
 const pollRoutes = require('./routes/pollRoutes')
 
@@ -48,7 +49,9 @@ app.get('/', (req, res) => {
 })
 
 // DEBUG / DEVELOPING ONLY
-// app.use(fakeUser)
+if (process.env.NODE_ENV !== 'production') {
+  app.use('/dev', devRoutes)
+}
 
 // Anonymous auth - if no user then create one
 app.use(anonUser)
