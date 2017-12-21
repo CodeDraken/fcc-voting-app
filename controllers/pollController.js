@@ -35,9 +35,16 @@ const pollController = {
   async getPolls (req, res) {
     // get all polls
     try {
-      const polls = await Poll.find()
+      const page = req.query.page || 0
+      const polls = await Poll
+        .find()
+        .skip(page * 10)
+        .limit(10)
 
-      res.send(polls)
+      res.send({
+        page,
+        polls
+      })
     } catch (err) {
       res.status(500).send(err)
     }
