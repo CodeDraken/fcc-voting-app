@@ -4,7 +4,8 @@ import { BrowserRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import * as actions from '../actions'
-import routes from './routes'
+import routes from '../components/routes'
+import Header from './Header'
 
 class App extends Component {
   static propTypes = {
@@ -19,6 +20,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <React.Fragment>
+          <Header />
           <div className='container'>
             { routes }
           </div>

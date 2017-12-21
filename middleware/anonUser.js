@@ -14,6 +14,7 @@ const anonUser = (req, res, next) => {
     req.user = {
       _id: req.session.user,
       username: 'Anonymous',
+      anonymous: true,
       githubId: null,
       avatarUrl: null
     }
