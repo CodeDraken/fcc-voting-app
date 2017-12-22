@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const PollListItem = ({ createdAt, ownerName, title, totalVotes, _id }) => (
-  <li className='poll-list-item'>
+  <li className='poll-list-item grey lighten-5'>
     <div className='poll-list-item-inner'>
 
       <h5 className='title'>
