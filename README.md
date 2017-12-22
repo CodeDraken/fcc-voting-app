@@ -32,9 +32,15 @@ module.exports = {
 
 ### npm Commands
   `start` - starts the server
+
   `start-watch` - starts the server with nodemon ( live reload )
+
   `test` - runs tests
+
   `test-watch` - tests with reloading
+
   `client` - start the client
+
   `dev` - start the client and the server using concurrently
+  
   `lt` - start a localtunnel server
