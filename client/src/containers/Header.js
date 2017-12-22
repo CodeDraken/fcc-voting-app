@@ -20,6 +20,7 @@ export class Header extends Component {
         <div className='nav-wrapper'>
           <Link to='/' className='left brand-logo'>
             VoteDraken
+            <small> - Create polls and vote on them</small>
           </Link>
           <ul className='right'>
             <li>Welcome, {this.props.auth.username}</li>
