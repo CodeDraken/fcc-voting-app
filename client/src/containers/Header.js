@@ -23,7 +23,7 @@ export class Header extends Component {
             <small> - Create polls and vote on them</small>
           </Link>
           <ul className='right'>
-            <li>Welcome, {this.props.auth.username}</li>
+            <li><Link to='/me'>Welcome, {this.props.auth.username}</Link></li>
             <LoginOutBtn user={this.props.auth} />
           </ul>
         </div>

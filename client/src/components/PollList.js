@@ -4,11 +4,10 @@ import PropTypes from 'prop-types'
 import PollListItem from './PollListItem'
 
 const PollList = ({ polls }) => (
-  <ul>
-    { console.log(polls) }
+  <ul className='poll-list'>
     { polls.map(poll => (
       <PollListItem key={poll._id} {...poll} />
-    )) }
+      )) }
   </ul>
 )
 

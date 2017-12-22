@@ -7,12 +7,11 @@ const PollListItem = ({ createdAt, ownerName, title, totalVotes, _id }) => (
 
       <h5 className='title'>
         { title }
-        <br />
-        <small>Votes: {totalVotes}</small>
+        <small> ( {totalVotes} votes )</small>
       </h5>
 
       <footer>
-        <p>Created by: <strong>{ownerName}</strong> on
+        <p>Created by <strong>{ownerName}</strong><br />
           <em>
             {new Date(createdAt).toLocaleString()}
           </em>
@@ -24,7 +23,11 @@ const PollListItem = ({ createdAt, ownerName, title, totalVotes, _id }) => (
 )
 
 PollListItem.propTypes = {
-
+  createdAt: PropTypes.string,
+  ownerName: PropTypes.string,
+  title: PropTypes.string,
+  totalVotes: PropTypes.number,
+  _id: PropTypes.string
 }
 
 export default PollListItem

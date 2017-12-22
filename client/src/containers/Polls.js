@@ -19,7 +19,7 @@ class Polls extends Component {
   render () {
     return (
       <div className='polls'>
-        <h2>Polls</h2>
+        <h2 className='red-text thick-text'>Find a Poll</h2>
         { this.props.polls
           ? <PollList polls={this.props.polls.polls} />
           : null

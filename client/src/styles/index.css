@@ -1,0 +1,24 @@
+h1 {
+  font-size: 3.5rem; }
+
+h2 {
+  font-size: 3rem; }
+
+.thick-text {
+  font-weight: bold; }
+
+nav .brand-logo {
+  font-size: 1.5rem; }
+
+small {
+  opacity: 0.70; }
+
+.poll-list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: center; }
+
+.poll-list-item {
+  padding: 1rem;
+  flex-basis: 20rem; }
