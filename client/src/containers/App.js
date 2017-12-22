@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { BrowserRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-import * as actions from '../actions'
+import { getCurrentUser } from '../actions/authActions'
 import routes from '../components/routes'
 import Header from './Header'
 
@@ -30,4 +30,4 @@ class App extends Component {
   }
 }
 
-export default connect(null, actions)(App)
+export default connect(null, { getCurrentUser })(App)

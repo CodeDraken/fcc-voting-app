@@ -16,7 +16,7 @@ export class Header extends Component {
 
   render () {
     return (
-      <nav className='red lighten-1'>
+      <nav className='blue-grey'>
         <div className='nav-wrapper'>
           <Link to='/' className='left brand-logo'>
             VoteDraken
