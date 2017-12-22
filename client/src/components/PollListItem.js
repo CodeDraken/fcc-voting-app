@@ -1,12 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { Link } from 'react-router-dom'
+
 const PollListItem = ({ createdAt, ownerName, title, totalVotes, _id }) => (
-  <li className='poll-list-item grey lighten-5'>
-    <div className='poll-list-item-inner'>
+  <li className='poll-list-item' title={title}>
+    <Link to={`/polls/${_id}`} className='poll-list-item-inner'>
 
       <h5 className='title'>
-        { title }
+        { title.substr(0, 20) }
         <small> ( {totalVotes} votes )</small>
       </h5>
 
@@ -18,7 +20,7 @@ const PollListItem = ({ createdAt, ownerName, title, totalVotes, _id }) => (
         </p>
       </footer>
 
-    </div>
+    </Link>
   </li>
 )
 
