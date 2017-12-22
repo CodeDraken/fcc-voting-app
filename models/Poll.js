@@ -25,6 +25,8 @@ const pollSchema = new Schema({
     required: true
   },
 
+  ownerName: String,
+
   createdAt: Date
 })
 

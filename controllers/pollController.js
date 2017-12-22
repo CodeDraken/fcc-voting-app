@@ -84,6 +84,7 @@ const pollController = {
         choices,
         votes: [],
         _owner: req.user._id,
+        ownerName: req.user.username,
         createdAt: Date.now()
       }).save()
 
