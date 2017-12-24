@@ -11,9 +11,9 @@ class Polls extends Component {
   }
 
   componentDidMount () {
-    if (!this.props.polls || !this.props.polls.length > 0) {
-      this.props.fetchPolls()
-    }
+    // if (!this.props.polls || this.props.polls.length < 1) {
+    this.props.fetchPolls()
+    // }
   }
 
   render () {

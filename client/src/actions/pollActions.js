@@ -27,7 +27,24 @@ export const fetchSinglePoll = (id) => async dispatch => {
   }
 }
 
+export const newPoll = ({ title, choices, history }) => async dispatch => {
+  try {
+    const res = await axios.post(
+      '/api/polls',
+      { title, choices: choices.split('\n') }
+    )
+
+    dispatch({ type: FETCH_SINGLE_POLL, payload: res.data })
+
+    history.push(`/polls/${res.data._id}`)
+  } catch (error) {
+    console.log(error)
+    // TODO: dispatch failed to create poll / error handle
+  }
+}
+
 export default {
   fetchPolls,
-  fetchSinglePoll
+  fetchSinglePoll,
+  newPoll
 }

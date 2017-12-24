@@ -81,7 +81,7 @@ const pollController = {
       const { title, choices } = req.body
       const poll = await new Poll({
         title,
-        choices,
+        choices: choices.map(choice => ({ value: choice })),
         votes: [],
         _owner: req.user._id,
         ownerName: req.user.username,
