@@ -1,2 +1,3 @@
 export const GET_CURRENT_USER = 'GET_CURRENT_USER'
 export const FETCH_POLLS = 'FETCH_POLLS'
+export const FETCH_SINGLE_POLL = 'FETCH_SINGLE_POLL'

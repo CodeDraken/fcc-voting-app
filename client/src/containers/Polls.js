@@ -11,18 +11,22 @@ class Polls extends Component {
   }
 
   componentDidMount () {
-    if (!this.props.polls) {
+    if (!this.props.polls || !this.props.polls.length > 0) {
       this.props.fetchPolls()
     }
   }
 
   render () {
+    const polls = this.props.polls
+      ? this.props.polls.polls
+      : null
+
     return (
       <div className='polls'>
         <h2 className='red-text thick-text'>Find a Poll</h2>
-        { this.props.polls
-          ? <PollList polls={this.props.polls.polls} />
-          : null
+        { polls && polls.length > 0
+          ? <PollList polls={polls} />
+          : <h3>Looking for polls...</h3>
         }
       </div>
     )
