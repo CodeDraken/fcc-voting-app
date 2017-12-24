@@ -5,6 +5,8 @@ import { connect } from 'react-redux'
 import { fetchSinglePoll } from '../actions/pollActions'
 import Loader from '../components/Loader'
 
+import randColor from '../utils/randColor'
+
 class PollPage extends Component {
   static propTypes = {
     fetchSinglePoll: PropTypes.func.isRequired,
@@ -45,16 +47,30 @@ class PollPage extends Component {
     return poll
     ? (
       <div>
-        <h2>{poll.title}</h2>
+        <h3 className={`center-align ${randColor()}-text thick-text`}>
+          {poll.title}
+          <br />
+          <small>Created by {poll.ownerName} on {new Date(poll.createdAt).toLocaleDateString()}</small>
+        </h3>
+
+        <div className='poll-area row'>
+          <div className='col s12 m6'>
+            <h4 className='center-align'>Votes: {poll.totalVotes}</h4>
+          </div>
+
+          <div className='col s12 m6'>
+            <h4 className='center-align'>Place your vote:</h4>
+          </div>
+        </div>
+
       </div>
     )
     : <Loader />
   }
 }
 
-const mapStateToProps = ({ polls, auth }) => ({
-  polls: polls ? polls.polls : null,
-  auth
+const mapStateToProps = ({ polls }) => ({
+  polls: polls ? polls.polls : null
 })
 
 export default connect(mapStateToProps, { fetchSinglePoll })(PollPage)

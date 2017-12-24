@@ -23,7 +23,7 @@ class Polls extends Component {
 
     return (
       <div className='polls'>
-        <h2 className='red-text thick-text'>Find a Poll</h2>
+        <h2 className='blue-text thick-text'>Find a Poll</h2>
         { polls && polls.length > 0
           ? <PollList polls={polls} />
           : <h3>Looking for polls...</h3>
