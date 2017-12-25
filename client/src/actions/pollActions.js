@@ -56,10 +56,11 @@ export const newPoll = ({ title, choices, history }) => async dispatch => {
 }
 
 export const vote = (id, choice) => async dispatch => {
-  if (!id || !choice) {
-    throw new Error('Invalid vote')
-  }
   try {
+    if (!id || !choice) {
+      throw new Error('Invalid vote')
+    }
+
     const res = await axios.patch(`/api/polls/${id}`, { choice })
 
     dispatch({ type: FETCH_SINGLE_POLL, payload: res.data })

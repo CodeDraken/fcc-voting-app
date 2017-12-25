@@ -17,6 +17,21 @@ const VoteForm = ({ poll, vote, handleSubmit }) => {
 
       )}
     >
+      <p>
+        <a
+          className='btn-flat blue white-text'
+          href={`https://twitter.com/intent/tweet?url=votedraken.com&text=vote`}
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          Tweet
+        </a>
+        <button className='teal btn-flat white-text right'>
+          Vote
+          <i className='material-icons right'>done</i>
+        </button>
+      </p>
+
       <Field
         component={FormField}
         Element='input'
@@ -40,17 +55,16 @@ const VoteForm = ({ poll, vote, handleSubmit }) => {
           </p>
         ))
       }
-
-      <button className='teal btn-flat white-text'>
-        Vote
-        <i className='material-icons right'>done</i>
-      </button>
     </form>
   )
 }
 
 const validate = values => {
   const errors = {}
+
+  if (!values.voteOption || values.customVote) {
+    errors.customVote = 'Please choose an option or create a new one'
+  }
 
   return errors
 }
