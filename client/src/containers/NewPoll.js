@@ -13,35 +13,38 @@ export class NewPoll extends Component {
 
   render () {
     return (
-      <form
-        onSubmit={this.props.handleSubmit(values => this.submitForm(values))}
-      >
-        <Field
-          component={FormField}
-          Element='input'
-          type='text'
-          _name='title'
-          label='Poll Title'
-          name='title'
-        />
+      <div>
+        <h2 className='center-align blue-text thick-text'>Create a new Poll</h2>
+        <form
+          onSubmit={this.props.handleSubmit(values => this.submitForm(values))}
+        >
+          <Field
+            component={FormField}
+            Element='input'
+            type='text'
+            _name='title'
+            label='Poll Title'
+            name='title'
+          />
 
-        <Field
-          component={FormField}
-          Element='textarea'
-          type='text'
-          _name='choices'
-          label='Poll Choices - separated by new lines'
-          name='choices'
-        />
+          <Field
+            component={FormField}
+            Element='textarea'
+            type='text'
+            _name='choices'
+            label='Poll Choices - separated by new lines'
+            name='choices'
+          />
 
-        <Link to='/' className='red btn-flat white-text'>
-          Cancel
-        </Link>
-        <button className='teal btn-flat right white-text'>
-          Create Poll
-          <i className='material-icons right'>done</i>
-        </button>
-      </form>
+          <Link to='/' className='red btn-flat white-text'>
+            Cancel
+          </Link>
+          <button className='teal btn-flat right white-text'>
+            Create Poll
+            <i className='material-icons right'>done</i>
+          </button>
+        </form>
+      </div>
     )
   }
 }

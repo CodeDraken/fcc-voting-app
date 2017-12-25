@@ -2,6 +2,18 @@ import axios from 'axios'
 
 import { FETCH_POLLS, FETCH_SINGLE_POLL } from './types'
 
+// get a user's polls
+export const fetchMyPolls = () => async dispatch => {
+  try {
+    const res = await axios.get(`/api/mypolls`)
+
+    dispatch({ type: FETCH_POLLS, payload: res.data })
+  } catch (error) {
+    console.log(error)
+    // TODO: dispatch failed to fetchPolls / error handle
+  }
+}
+
 // get polls, optionally pass in page number
 export const fetchPolls = (page = 0) => async dispatch => {
   try {

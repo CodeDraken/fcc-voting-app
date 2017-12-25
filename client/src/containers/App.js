@@ -21,9 +21,9 @@ class App extends Component {
       <BrowserRouter>
         <React.Fragment>
           <Header />
-          <div className='container'>
+          <main className='container'>
             { routes }
-          </div>
+          </main>
         </React.Fragment>
       </BrowserRouter>
     )

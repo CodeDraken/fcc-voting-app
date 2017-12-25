@@ -54,7 +54,7 @@ const pollController = {
     try {
       const polls = await Poll.find({ _owner: req.user._id })
 
-      res.send(polls)
+      res.send({ polls })
     } catch (error) {
       res.status(400).send(error)
     }
