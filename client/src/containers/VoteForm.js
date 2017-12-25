@@ -6,7 +6,6 @@ import { vote } from '../actions/pollActions'
 import FormField from '../components/FormField'
 
 const VoteForm = ({ poll, vote, handleSubmit }) => {
-  console.log(poll)
   return (
     <form
       onSubmit={handleSubmit(({customVote, voteOption}) => vote(

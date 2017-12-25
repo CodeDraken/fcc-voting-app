@@ -10,7 +10,15 @@ export default (state = null, action) => {
         : action.payload
     case FETCH_SINGLE_POLL:
       return state
-        ? { ...state, polls: [ ...state.polls, action.payload ] }
+        ? {
+          ...state,
+          polls: [
+            ...state.polls.filter(poll =>
+                poll._id !== action.payload._id
+              ),
+            action.payload
+          ]
+        }
         : { page: 0, polls: [ action.payload ] }
     default:
       return state
