@@ -27,6 +27,29 @@ small {
   font-size: 65%;
 }
 
+
+/* .radio-button-css{
+  position: relative !important;
+  z-index: 12;
+  opacity: 1 !important;
+  left: 19px !important;
+} */
+
+[type="radio"]:not(:checked),
+[type="radio"]:checked {
+  left: 0 !important;
+  visibility: visible !important;
+  opacity: 0;
+}
+
+[type="radio"]:focus+label::before,
+[type="radio"]:focus+label::after,
+[type="radio"]:checked+label::before,
+[type="radio"]:checked+label::after {
+  border-color: transparent;
+  background-color: #26a69a;
+}
+
 .nav-wrapper {
   padding: 0.2rem;
 }
@@ -43,7 +66,7 @@ small {
 }
 
 .poll-list-item {
-  border: 1px solid rgba(0,0,0,0.2);
+  border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
   padding: 0.5rem;
@@ -51,14 +74,14 @@ small {
   flex-basis: 20rem;
   cursor: pointer;
   transition: background-color 0.2s linear,
-    box-shadow 0.2s ease-in-out,
-    border 0.2s ease-in-out;
+  box-shadow 0.2s ease-in-out,
+  border 0.2s ease-in-out;
 }
 
 .poll-list-item:hover {
   background-color: #f8f8f8;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(0,0,0,0.3);
+  border: 1px solid rgba(0, 0, 0, 0.3);
 }
 
 .poll-list-item .title {
@@ -66,14 +89,14 @@ small {
   white-space: nowrap;
 }
 
-.poll-area > div.col {
-  border: 1px solid rgba(0,0,0,0.2);
+.poll-area>div.col {
+  border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 1px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
   padding: 1rem;
   min-height: 10rem;
 }
 
-.poll-area > div:last-child {
+.poll-area>div:last-child {
   border-left: none;
 }

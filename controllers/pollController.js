@@ -118,6 +118,10 @@ const pollController = {
       let { choice } = req.body
       const isChoiceObj = typeof choice === 'object'
 
+      if (!choice) {
+        return res.send(400)
+      }
+
       const poll = await Poll.findOne({
         _id: id
       })
@@ -137,7 +141,7 @@ const pollController = {
       if (isChoiceObj && existingChoice) {
         // choice exists so just use its index
         choice = poll.choices.indexOf(existingChoice)
-      } else if (isChoiceObj && !existingChoice) {
+      } else if (isChoiceObj && !existingChoice && 'value' in choice) {
         // create new choice and vote
         poll.choices.push(choice)
         choice = poll.choices.length - 1

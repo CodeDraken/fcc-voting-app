@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 import { fetchSinglePoll } from '../actions/pollActions'
 import Loader from '../components/Loader'
-
+import VoteForm from './VoteForm'
 import randColor from '../utils/randColor'
 
 class PollPage extends Component {
@@ -60,6 +60,7 @@ class PollPage extends Component {
 
           <div className='col s12 m6'>
             <h4 className='center-align'>Place your vote:</h4>
+            <VoteForm poll={poll} auth={this.props.auth} />
           </div>
         </div>
 
