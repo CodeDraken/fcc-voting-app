@@ -41,20 +41,37 @@ const VoteForm = ({ poll, vote, handleSubmit }) => {
         name='customVote'
       />
 
-      {
-        poll.choices.map((choice, i) => (
-          <p key={choice._id}>
-            <Field
-              id={choice._id}
-              component='input'
-              type='radio'
-              value={i}
-              name='voteOption'
-            />
-            <label htmlFor={choice._id}>{choice.value}</label>
-          </p>
-        ))
-      }
+      {/* requires jQuery to work
+        <div>
+          <label>Choices:</label>
+          <div class='input-field'>
+            <Field name='voteOption' component='select'>
+              <option />
+              <option value='ff0000'>Red</option>
+              {
+                poll.choices.map((choice, i) => (
+                  <option label={choice.value} key={choice._id} value={i}>
+                    {choice.value}
+                  </option>
+                ))
+              }
+            </Field>
+          </div>
+        </div>
+      */}
+
+      { poll.choices.map((choice, i) => (
+        <p key={choice._id}>
+          <Field
+            id={choice._id}
+            component='input'
+            type='radio'
+            value={i}
+            name='voteOption'
+              />
+          <label htmlFor={choice._id}>{choice.value}</label>
+        </p>
+        ))}
     </form>
   )
 }
