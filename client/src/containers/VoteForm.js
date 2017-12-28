@@ -20,7 +20,7 @@ const VoteForm = ({ poll, vote, handleSubmit }) => {
       <p>
         <a
           className='btn-flat blue white-text'
-          href={`https://twitter.com/intent/tweet?url=votedraken.com&text=vote`}
+          href={`https://twitter.com/intent/tweet?url=${window.location.href}&text=vote%20on%20this%20poll:`}
           target='_blank'
           rel='noopener noreferrer'
         >

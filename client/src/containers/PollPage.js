@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import { Doughnut } from 'react-chartjs-2'
 
 import { fetchSinglePoll } from '../actions/pollActions'
 import Loader from '../components/Loader'
@@ -43,6 +44,19 @@ class PollPage extends Component {
 
   render () {
     const poll = this.pollInState()
+    const chartData = poll
+      ? {
+        labels: poll.choices.map(choice => choice.value),
+        datasets: [{
+          label: 'Votes',
+          data: poll.choices.map(choice => choice.votes),
+          backgroundColor: [
+            '#2ecc71', '#3498db', '#9b59b6', '#e74c3c', '#e67e22',
+            '#3366CC', '#DC3912', '#FF9900', '#109618', '#990099', '#3B3EAC', '#0099C6', '#DD4477', '#66AA00', '#B82E2E', '#316395', '#994499', '#22AA99', '#AAAA11', '#6633CC', '#E67300', '#8B0707', '#329262', '#5574A6', '#3B3EAC'
+          ]
+        }]
+      }
+      : {}
 
     return poll
     ? (
@@ -56,6 +70,7 @@ class PollPage extends Component {
         <div className='poll-area row'>
           <div className='col s12 m6'>
             <h4 className='center-align'>Votes: {poll.totalVotes}</h4>
+            <Doughnut data={chartData} />
           </div>
 
           <div className='col s12 m6'>
