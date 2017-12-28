@@ -39,14 +39,14 @@ app.use(passport.session())
 // 3rd party middlewares
 app.use(bodyParser.json())
 
-app.get('/', (req, res) => {
-  let ip = (req.headers['x-forwarded-for'] || '').split(',').pop() ||
-    req.connection.remoteAddress ||
-    req.socket.remoteAddress ||
-    req.connection.socket.remoteAddress
+// app.get('/', (req, res) => {
+//   let ip = (req.headers['x-forwarded-for'] || '').split(',').pop() ||
+//     req.connection.remoteAddress ||
+//     req.socket.remoteAddress ||
+//     req.connection.socket.remoteAddress
 
-  res.send({ ip })
-})
+//   res.send({ ip })
+// })
 
 // DEBUG / DEVELOPING ONLY
 if (process.env.NODE_ENV !== 'production') {
