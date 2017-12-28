@@ -20,7 +20,8 @@
     "test-watch": "nodemon yarn test",
     "client": "cd client && yarn start",
     "dev": "concurrently \"yarn start-watch\" \"yarn client\"",
-    "lt": "lt -p 5000 -s votedrakendevlt000"
+    "lt": "lt -p 5000 -s votedrakendevlt000",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "devDependencies": {
     "babel-eslint": "^8.0.3",
