@@ -1,7 +1,9 @@
 # FCC Voting App
 A voting app project for [FreeCodeCamp](https://www.freecodecamp.org/)
 
-View it at: ( link to be added )
+View it at: https://arcane-atoll-78026.herokuapp.com/
+
+Keep in mind this is just an educational project - one that was rushed a little bit so I didn't bother with the design much or to make it *perfect*.
 
 ## Some of the tech used:
 * Back-End: NodeJS, Express, MongoDB
