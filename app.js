@@ -62,4 +62,16 @@ app.use('/auth', authRoutes)
 // poll api routes
 app.use('/api', pollRoutes)
 
+// production only & happens after other routes
+if (process.env.NODE_ENV === 'production') {
+  // serve production assets ( main.js, main.css, etc )
+  app.use(express.static('client/build'))
+
+  // serve index.html if unrecognized route
+  const path = require('path')
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+  })
+}
+
 module.exports = app
