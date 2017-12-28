@@ -71,6 +71,15 @@ class PollPage extends Component {
           <div className='col s12 m6'>
             <h4 className='center-align'>Votes: {poll.totalVotes}</h4>
             <Doughnut data={chartData} />
+            <p>Latest Votes:</p>
+            <ul className='collection'>
+              { poll.votes.slice(0, 10).map(vote => (
+                <li className='collection-item' key={vote._id}>
+                  {vote.username} voted for {poll.choices[vote.vote].value}
+                </li>
+              ))
+              }
+            </ul>
           </div>
 
           <div className='col s12 m6'>

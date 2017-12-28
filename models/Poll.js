@@ -3,6 +3,7 @@ const { Schema } = mongoose
 
 const voteSchema = new Schema({
   _user: { type: Schema.Types.ObjectId, ref: 'User', required: true },
+  username: String,
   vote: { type: Number, required: true }
 })
 

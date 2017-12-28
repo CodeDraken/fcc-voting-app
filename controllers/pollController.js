@@ -22,7 +22,8 @@ const createVote = (poll, voter, choice) => {
   poll.choices[choice].votes++
 
   poll.votes.push({
-    _user: voter,
+    _user: voter._id,
+    username: voter.username,
     vote: choice
   })
 
@@ -37,7 +38,7 @@ const pollController = {
     try {
       const page = req.query.page || 0
       const polls = await Poll
-        .find()
+        .find({}, {}, { sort: { 'createdAt': -1 } })
         .skip(page * 10)
         .limit(10)
 
@@ -52,7 +53,11 @@ const pollController = {
 
   async getMyPolls (req, res) {
     try {
-      const polls = await Poll.find({ _owner: req.user._id })
+      const polls = await Poll.find(
+        { _owner: req.user._id },
+        {},
+        { sort: { 'createdAt': -1 } }
+      )
 
       res.send({ polls })
     } catch (error) {
@@ -148,7 +153,7 @@ const pollController = {
       }
 
       // add vote
-      createVote(poll, req.user._id, choice)
+      createVote(poll, req.user, choice)
 
       const updatedPoll = await poll.save()
 

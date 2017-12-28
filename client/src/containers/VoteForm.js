@@ -41,7 +41,20 @@ const VoteForm = ({ poll, vote, handleSubmit }) => {
         name='customVote'
       />
 
-      {/* requires jQuery to work
+      { poll.choices.map((choice, i) => (
+        <p key={choice._id}>
+          <Field
+            id={choice._id}
+            component='input'
+            type='radio'
+            value={i}
+            name='voteOption'
+              />
+          <label htmlFor={choice._id}>{choice.value}</label>
+        </p>
+        ))}
+
+      {/* <select> support requires jQuery to work
         <div>
           <label>Choices:</label>
           <div class='input-field'>
@@ -59,19 +72,6 @@ const VoteForm = ({ poll, vote, handleSubmit }) => {
           </div>
         </div>
       */}
-
-      { poll.choices.map((choice, i) => (
-        <p key={choice._id}>
-          <Field
-            id={choice._id}
-            component='input'
-            type='radio'
-            value={i}
-            name='voteOption'
-              />
-          <label htmlFor={choice._id}>{choice.value}</label>
-        </p>
-        ))}
     </form>
   )
 }
@@ -79,7 +79,7 @@ const VoteForm = ({ poll, vote, handleSubmit }) => {
 const validate = values => {
   const errors = {}
 
-  if (!values.voteOption || values.customVote) {
+  if (!values.voteOption && !values.customVote) {
     errors.customVote = 'Please choose an option or create a new one'
   }
 
