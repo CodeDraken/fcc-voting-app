@@ -19,6 +19,13 @@ export const fetchPolls = (page = 0) => async dispatch => {
   try {
     const res = await axios.get(`/api/polls?page=${page}`)
 
+    console.log(res, +res.data.page > 0 && res.data.polls.length < 1)
+
+    if (+res.data.page > 0 && res.data.polls.length < 1) {
+      // next page and no polls found
+      return
+    }
+
     dispatch({ type: FETCH_POLLS, payload: res.data })
   } catch (error) {
     console.log(error)

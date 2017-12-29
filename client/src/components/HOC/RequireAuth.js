@@ -9,7 +9,7 @@ export default (ComposedComponent) => {
   class Authentication extends Component {
     static propTypes = {
       history: PropTypes.object,
-      authenticated: PropTypes.Boolean
+      authenticated: PropTypes.bool
     }
 
     componentWillMount () {
