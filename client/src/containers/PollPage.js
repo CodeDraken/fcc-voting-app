@@ -73,8 +73,8 @@ class PollPage extends Component {
             <Doughnut data={chartData} />
             <p>Latest Votes:</p>
             <ul className='collection'>
-              { poll.votes.slice(0, 10).map(vote => (
-                <li className='collection-item' key={vote._id}>
+              { poll.votes.reverse().slice(0, 5).map(vote => (
+                <li className='collection-item' key={vote._id} title={`id: ${vote._user}`}>
                   {vote.username} voted for {poll.choices[vote.vote].value}
                 </li>
               ))
